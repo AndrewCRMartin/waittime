@@ -145,9 +145,9 @@ int main(int argc, char **argv)
    /* Note that this machine modifies the busy linked list              */
    waitTime = CalculateWaitTime(jobs, busy);
    
-   printf("Total wait time: %ld seconds\n", (ULONG)waitTime);
-   printf("Total run time:  %ld seconds\n", (ULONG)runTime);
-   printf("Total busy time: %ld seconds\n", (ULONG)busyTime);
+   printf("Total wait time: %lu seconds\n", (ULONG)waitTime);
+   printf("Total run time:  %lu seconds\n", (ULONG)runTime);
+   printf("Total busy time: %lu seconds\n", (ULONG)busyTime);
    
    return(0);
 }
@@ -336,7 +336,7 @@ void PrintBusy(BUSY *busy)
 
    for(b=busy; b!=NULL; NEXT(b))
    {
-      printf("  %ld - %ld\n", (ULONG)b->startTime, (ULONG)b->stopTime);
+      printf("  %lu - %lu\n", (ULONG)b->startTime, (ULONG)b->stopTime);
    }
 }
 
