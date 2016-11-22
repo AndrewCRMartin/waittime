@@ -99,14 +99,14 @@ typedef struct _busy
 /************************************************************************/
 /* Prototypes
 */
-JOBS *ReadTimes(char *fileName);
-BUSY *FindBusyTimes(JOBS *jobs);
+JOBS   *ReadTimes(char *fileName);
+BUSY   *FindBusyTimes(JOBS *jobs);
 time_t CalculateWaitTime(JOBS *jobs, BUSY *busy);
 time_t CalculateRunTime(JOBS *jobs);
 time_t CalculateBusyTime(BUSY *busy);
-int main(int argc, char **argv);
-void PrintBusy(BUSY *busy);
-void UsageDie(void);
+int    main(int argc, char **argv);
+void   PrintBusy(BUSY *busy);
+void   UsageDie(void);
 
 
 /************************************************************************/
@@ -188,7 +188,7 @@ something\n");
 */
 time_t CalculateRunTime(JOBS *jobs)
 {
-   JOBS *j;
+   JOBS   *j;
    time_t runTime = (time_t)0L;
    
    for(j=jobs; j!=NULL; NEXT(j))
@@ -213,7 +213,7 @@ time_t CalculateRunTime(JOBS *jobs)
 */
 time_t CalculateBusyTime(BUSY *busy)
 {
-   BUSY *b;
+   BUSY   *b;
    time_t busyTime = (time_t)0L;
    
    for(b=busy; b!=NULL; NEXT(b))
@@ -241,7 +241,7 @@ BUSY *FindBusyTimes(JOBS *jobs)
 {
    JOBS *j;
    BUSY *busy = NULL,
-      *b, *b1, *b2;
+        *b, *b1, *b2;
    BOOL changed = FALSE;
    
 
@@ -354,7 +354,7 @@ JOBS *ReadTimes(char *fileName)
 {
    FILE *in = NULL;
    JOBS *jobs = NULL,
-      *j;
+        *j;
    
    
    if((in = fopen(fileName, "r"))!=NULL)
@@ -420,10 +420,11 @@ JOBS *ReadTimes(char *fileName)
 */
 time_t CalculateWaitTime(JOBS *jobs, BUSY *busy)
 {
-   BUSY *b, *best;
-   JOBS *j;
-   time_t minDiff, totalWait = 0L;
-   
+   BUSY   *b,
+          *best;
+   JOBS   *j;
+   time_t minDiff, 
+          totalWait = 0L;
    
    for(j=jobs; j!=NULL; NEXT(j))
    {
